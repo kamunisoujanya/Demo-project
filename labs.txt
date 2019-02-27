@@ -1,0 +1,113 @@
+Jenkins Labs
+Day2 
+Lab 7 - Maven 
+	Create new Project(https://github.com/vaishalitapaswi/demo2maven)
+	Maven Project 
+		-> Maven target - clean install package
+		
+
+Lab 6 - Security Settings
+	Grant readonly access
+		Global Security -> Authorization
+		
+	Create Users
+		user1,user2,user3
+	install plugin - Matrix Authorization Strategy
+	install plugin - Role Based Role-based Authorization Strategy
+	
+	
+
+
+Lab 5 - two projects 
+	1. Compilation
+	2. Running
+	Project1 - Similar to DemoProject2 (GitHub)
+		-> only step here compilation
+	Project2 - 
+		Build after other projects are built 
+				Project1
+		java HelloWorld
+	
+	1. Observe error message
+	2. Create Build Steps
+		copy HelloWorld.class ... to project2workspace
+	-------------------------------
+	Install Copy Artifact 
+		
+Lab 4 - 
+	Configure (jdk, git, maven )
+	jdk - jdk home = C:\Program Files\Java\jdk1.8.0_05
+	git - git exe = C:\Program Files\Git\bin\git.exe
+	maven - maven home = C:\work\apache-maven-3.5.0
+
+	Project 2
+		Create Freestyle project - DemoProject2
+		select github project
+			https://github.com/vaishalitapaswi/mycode
+		source code git 
+		repourl = https://github.com/vaishalitapaswi/mycode
+	
+		Build Triggers
+			build periodically - 5 mins
+		GitHub pull request - every min
+		
+		
+
+
+Day 1
+Lab 3 - Plugins
+	List all the plugins
+	Install -> Suggested + git hub integration
+
+Lab 2 - 
+	Create a simple job
+	create  a folder (C:\mywork\demo1)
+	create a HelloWorld.java file in demo1
+	public class HelloWorld{
+		public static void main(String[] args){
+			System.out.println("Hello WOrld 1.0!!!");
+		}
+	}
+	http://localhost:8080/jenkins
+		login
+	new Item ->  DemoProject1
+			Free Style
+			->Build Triggers
+				->Build periodically
+					-> select after every minutes
+				->Build
+					build step->Windows batch
+						->  cd C:\mywork\demo1
+							javac HelloWorld.java
+							java HelloWorld
+	Check project status
+		modify java code -> error-> check status
+		modify -> correct-> check status
+
+Lab 1 - 
+1. 10.55.2.55\UserBackup$\jenkins training
+--> 1. JDK
+--> 2. Eclipse
+--> 2. Jenkins
+		-> installations
+			-> configuration
+			1. Windows Installation - msi
+				(web server(wildfly) + war file)
+			2. Generic Java Package (war)
+				JDK(C:\Program Files\Java\jdk1.8.0_05)
+				Tomcat() installed
+					bin>catalina start 
+					(error -> JAVA_HOME)
+						set JAVA_HOME=c:\Program Files\Java\jdk1.8.0_05
+				deploy war file
+					copy jenkins.war file to C:\mywork\apache-tomcat-8.5.4\webapps
+		
+	Setup of Jenkins
+		1. http://localhost:8080/jenkins
+			asked about admin key - (.\users\..\.jenkins\secrets\initialAdminPassword)
+				Skip plugin...
+			create a new admin user
+				admin, admin
+			accept same url
+			start using
+			
